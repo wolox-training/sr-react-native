@@ -6,7 +6,7 @@ const initialState = {
 
 export default function detailBookReducer(state = initialState, action: any) {
   switch (action.type) {
-    case actions.detailBook:
+    case actions.DETAIL_BOOK:
       return {
         book: action.payload.book
       };

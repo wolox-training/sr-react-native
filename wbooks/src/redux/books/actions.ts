@@ -1,12 +1,14 @@
 export const actions = {
-  detailBook: '[Book] Detail'
+  DETAIL_BOOK: '[Book] Detail'
 };
 
-export function detailBookAction(book: string) {
-  return {
-    type: actions.detailBook,
+const actionCreators = {
+  detailBookAction: (book: string) => ({
+    type: actions.DETAIL_BOOK,
     payload: {
       book
     }
-  };
-}
+  })
+};
+
+export default actionCreators;
