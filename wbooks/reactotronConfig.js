@@ -6,7 +6,6 @@ const reactotronConfig = {
     Reactotron.configure().useReactNative().use(reactotronRedux()).connect();
   },
   createEnhancer: () => Reactotron.createEnhancer(),
-  // eslint-disable-next-line no-console
   console: {
     tron: {
       log: (...args) => Reactotron.logImportant(...args),
