@@ -6,6 +6,12 @@ import { Provider } from 'react-redux';
 import { store } from '../redux/store';
 
 function App() {
+  if (__DEV__) {
+    const reactotron = require('../../reactotronConfig').default;
+    reactotron.initiate();
+    reactotron.console.tron.log('Hola mundo');
+  }
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
