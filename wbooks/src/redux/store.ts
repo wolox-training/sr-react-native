@@ -8,7 +8,11 @@ const reducers = combineReducers({
   books
 });
 
-const store = createStore(reducers, compose(Reactotron.createEnhancer()));
+const enhancers = [];
+
+if (__DEV__) enhancers.push(Reactotron.createEnhancer(true));
+
+const store = createStore(reducers, compose(...enhancers));
 
 if (__DEV__) Reactotron.setReduxStore(store);
 
