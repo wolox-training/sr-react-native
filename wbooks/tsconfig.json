@@ -69,6 +69,6 @@
       "@utils/*": ["src/utils/*"]
     },
   },
-  "include": ["index.d.ts", "src/**/*", "App.test.tsx"],
+  "include": ["index.d.ts", "src/**/*", "App.test.tsx", "src/config/reactotronConfig.ts"],
   "exclude": [ ".history", "node_modules", "**/node_modules/*"]
 }
