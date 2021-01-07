@@ -3,20 +3,22 @@ import { colorsApp } from '@constants/colorsApp';
 
 export default StyleSheet.create({
   headerStyle: {
-    height: 120,
+    height: 110,
     backgroundColor: colorsApp.light
   },
   headerTitle: {
     color: colorsApp.white,
-    fontWeight: 'bold',
     textTransform: 'uppercase',
-    fontSize: 18
+    fontSize: 18,
+    textShadowColor: colorsApp.textShadowColor,
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 5
   },
   headerLeft: {
-    paddingLeft: 25
+    paddingLeft: 10
   },
   headerRight: {
-    paddingRight: 25
+    paddingRight: 10
   },
   headerImage: {
     height: '100%',

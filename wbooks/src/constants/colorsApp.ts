@@ -6,5 +6,6 @@ export const colorsApp = {
   danger: '#a33026',
   black: '#000',
   muted: '#a9a9a9',
-  lightGreen: '#24cbd0'
+  lightGreen: '#24cbd0',
+  textShadowColor: 'rgba(0, 0, 0, 0.35)'
 };
