@@ -5,7 +5,8 @@ import icBack from '@assets/header/ic_back.png';
 import icSearch from '@assets/header/ic_search.png';
 import icNotifications from '@assets/header/ic_notifications.png';
 import bcNavBar from '@assets/header/bc_nav_bar.png';
-import styles from '@components/AppNavigator/styles';
+
+import styles from './navigationStyles';
 
 export const NavigationsOptsStack = {
   general: {

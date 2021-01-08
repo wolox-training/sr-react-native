@@ -14,11 +14,9 @@ function App() {
     <>
       <StatusBar backgroundColor={colorsApp.primary} barStyle="light-content" />
       <SafeAreaView style={styles.safeAreaTop} />
-      <SafeAreaView style={styles.safeAreaBottom}>
-        <Provider store={store}>
-          <AppNavigator />
-        </Provider>
-      </SafeAreaView>
+      <Provider store={store}>
+        <AppNavigator />
+      </Provider>
     </>
   );
 }

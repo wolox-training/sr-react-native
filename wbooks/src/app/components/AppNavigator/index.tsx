@@ -47,9 +47,9 @@ function HomeTabs() {
       tabBarOptions={{
         activeTintColor: colorsApp.primary
       }}>
-      {screensTabs.map((screen, i) => (
+      {screensTabs.map(screen => (
         <Tab.Screen
-          key={i}
+          key={screen.route}
           name={screen.route}
           component={screen.component}
           options={() => ({
@@ -81,8 +81,13 @@ const screensStack = [
 function HomeStack() {
   return (
     <Stack.Navigator initialRouteName={routesName.home.route} screenOptions={NavigationsOptsStack.general}>
-      {screensStack.map((screen, i) => (
-        <Stack.Screen key={i} name={screen.route} component={screen.component} options={screen.options} />
+      {screensStack.map(screen => (
+        <Stack.Screen
+          key={screen.route}
+          name={screen.route}
+          component={screen.component}
+          options={screen.options}
+        />
       ))}
     </Stack.Navigator>
   );
