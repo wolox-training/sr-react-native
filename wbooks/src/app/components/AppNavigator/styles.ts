@@ -24,5 +24,10 @@ export default StyleSheet.create({
     height: '100%',
     width: '100%',
     backgroundColor: colorsApp.light
+  },
+  iconBar: {
+    marginRight: 5,
+    height: 30,
+    width: 30
   }
 });

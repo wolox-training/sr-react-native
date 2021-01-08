@@ -13,7 +13,8 @@ function App() {
   return (
     <>
       <StatusBar backgroundColor={colorsApp.primary} barStyle="light-content" />
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={styles.safeAreaTop} />
+      <SafeAreaView style={styles.safeAreaBottom}>
         <Provider store={store}>
           <AppNavigator />
         </Provider>
