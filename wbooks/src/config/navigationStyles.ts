@@ -3,7 +3,7 @@ import { colorsApp } from '@constants/colorsApp';
 
 export default StyleSheet.create({
   headerStyle: {
-    height: 110,
+    height: 160,
     backgroundColor: colorsApp.light
   },
   headerTitle: {
