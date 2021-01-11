@@ -3,7 +3,7 @@ export const actions = {
 };
 
 const actionCreators = {
-  detailBookAction: (book: string) => ({
+  detailBookAction: (book: any) => ({
     type: actions.DETAIL_BOOK,
     payload: {
       book
