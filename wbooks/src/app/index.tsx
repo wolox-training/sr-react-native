@@ -1,37 +1,21 @@
 import 'react-native-gesture-handler';
-import React, { useEffect } from 'react';
-import { SafeAreaView, StatusBar, View, Text } from 'react-native';
-import { Provider, useDispatch } from 'react-redux';
-import actionCreators from '@redux/books/actions';
+import React from 'react';
+import { StatusBar } from 'react-native';
+import { Provider } from 'react-redux';
+import { colorsApp } from '@constants/colorsApp';
 
 import store from '../redux/store';
 
-function App() {
-  // eslint-disable-next-line no-console
-  console.tron.log('Hello world!!!');
+import AppNavigator from './components/AppNavigator';
 
+function App() {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <Provider store={store}>
-          <BooksScreen />
-        </Provider>
-      </SafeAreaView>
+      <StatusBar backgroundColor={colorsApp.primary} barStyle="light-content" />
+      <Provider store={store}>
+        <AppNavigator />
+      </Provider>
     </>
-  );
-}
-
-function BooksScreen() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(actionCreators.detailBookAction('harry potter'));
-  }, [dispatch]);
-
-  return (
-    <View>
-      <Text>Books Screen</Text>
-    </View>
   );
 }
 
