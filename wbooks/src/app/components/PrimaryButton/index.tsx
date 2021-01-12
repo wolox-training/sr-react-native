@@ -2,10 +2,11 @@ import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { colorsGradient } from '@constants/colorsApp';
+import ButtonCustom from '@interfaces/buttonCustom';
 
 import styles from './styles';
 
-export function BtnPrimary({ title, onPress }: any) {
+function PrimaryButton({ title, onPress }: ButtonCustom) {
   return (
     <TouchableOpacity onPress={onPress}>
       <LinearGradient
@@ -18,10 +19,5 @@ export function BtnPrimary({ title, onPress }: any) {
     </TouchableOpacity>
   );
 }
-export function BtnSecondary({ title, onPress }: any) {
-  return (
-    <TouchableOpacity onPress={onPress} style={styles.buttonClear}>
-      <Text style={styles.titleButtonClear}>{title}</Text>
-    </TouchableOpacity>
-  );
-}
+
+export default PrimaryButton;

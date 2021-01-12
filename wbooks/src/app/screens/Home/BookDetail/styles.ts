@@ -8,7 +8,6 @@ export default StyleSheet.create({
     padding: 25
   },
   card: {
-    flexDirection: 'column',
     padding: 25,
     borderRadius: 6,
     marginTop: 15,
@@ -23,19 +22,16 @@ export default StyleSheet.create({
     elevation: 5
   },
   containerBook: {
-    display: 'flex',
     flexDirection: 'row',
     marginBottom: 15
   },
-  containerLogo: {
-    flex: 1
-  },
   logo: {
     width: 80,
-    height: 110
+    height: 110,
+    marginRight: 15
   },
   containerInfoBook: {
-    flex: 2
+    flex: 1
   },
   titleBook: {
     fontWeight: 'bold',

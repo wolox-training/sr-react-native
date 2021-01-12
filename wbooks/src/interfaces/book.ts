@@ -1,9 +1,9 @@
-export default interface Books {
+export default interface Book {
   id: number;
   author: string;
   title: string;
   genre: string;
   publisher: string;
   year: string;
-  imageUrl: string;
+  imageUrl: string | null;
 }

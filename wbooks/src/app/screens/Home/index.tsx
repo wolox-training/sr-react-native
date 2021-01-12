@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, FlatList, Animated } from 'react-native';
-import { useDispatch } from 'react-redux';
-import bookAction from '@redux/books/actions';
+import { View, Text, TouchableOpacity, FlatList, Animated, ListRenderItem } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { routesName } from '@constants/routesName';
 import noneBook from '@assets/books/noneBook.png';
 import { BOOKS_MOCK } from '@constants/mockBooks';
+import Book from '@interfaces/book';
 
 import styles from './styles';
 
-function HomeScreen({ navigation }: any) {
-  const [books, setBooks] = useState(BOOKS_MOCK);
+function HomeScreen() {
+  const navigation = useNavigation();
   const [animation] = useState(new Animated.Value(0));
-  const dispatch = useDispatch();
-  const keyExtractor = (item: any, index: number) => index.toString();
+  const keyExtractor = (item: Book, index: number) => index.toString();
 
   useEffect(() => {
-    setBooks(BOOKS_MOCK);
     Animated.timing(animation, {
       toValue: 1,
       duration: 2000,
@@ -23,12 +21,11 @@ function HomeScreen({ navigation }: any) {
     }).start();
   }, [animation]);
 
-  const renderItem = ({ item }: any) => (
+  const renderItem: ListRenderItem<Book> = ({ item }) => (
     <TouchableOpacity
       style={styles.containerList}
       onPress={() => {
-        dispatch(bookAction.detailBookAction(item));
-        navigation.navigate(routesName.bookDetail.route);
+        navigation.navigate(routesName.bookDetail.route, { book: item });
       }}>
       <Animated.Image
         style={[styles.logo, { opacity: animation }]}
@@ -43,7 +40,7 @@ function HomeScreen({ navigation }: any) {
 
   return (
     <View style={styles.container}>
-      <FlatList keyExtractor={keyExtractor} data={books} renderItem={renderItem} />
+      <FlatList keyExtractor={keyExtractor} data={BOOKS_MOCK} renderItem={renderItem} />
     </View>
   );
 }

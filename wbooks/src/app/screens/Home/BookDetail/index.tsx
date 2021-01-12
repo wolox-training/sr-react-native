@@ -1,22 +1,22 @@
 import React from 'react';
 import { ScrollView, View, Text, Image } from 'react-native';
-import { useSelector } from 'react-redux';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import noneBook from '@assets/books/noneBook.png';
-import { BtnPrimary, BtnSecondary } from '@app/components/ButtonsApp';
+import PrimaryButton from '@app/components/PrimaryButton';
+import SecondaryButton from '@app/components/SecondaryButton';
+import Book from '@interfaces/book';
 
 import styles from './styles';
 
-function BookDetailScreen({ navigation }: any) {
-  const stateBook = useSelector(state => state);
-  const { books }: any = stateBook;
-  const { book } = books;
+function BookDetailScreen() {
+  const navigation = useNavigation();
+  const route: RouteProp<{ params: { book: Book } }, 'params'> = useRoute();
+  const { book } = route.params;
   return (
     <ScrollView style={styles.container}>
       <View style={styles.card}>
         <View style={styles.containerBook}>
-          <View style={styles.containerLogo}>
-            <Image style={styles.logo} source={book.imageUrl ? { uri: book.imageUrl } : noneBook} />
-          </View>
+          <Image style={styles.logo} source={book.imageUrl ? { uri: book.imageUrl } : noneBook} />
           <View style={styles.containerInfoBook}>
             <Text style={styles.titleBook}>{book.title}</Text>
             <Text>{book.author}</Text>
@@ -25,8 +25,8 @@ function BookDetailScreen({ navigation }: any) {
             <Text style={styles.textsBook}>{book.genre}</Text>
           </View>
         </View>
-        <BtnSecondary title="add a comment" onPress={() => navigation.goBack()} />
-        <BtnPrimary title="return book" onPress={() => navigation.goBack()} />
+        <SecondaryButton title="add a comment" onPress={() => navigation.goBack()} />
+        <PrimaryButton title="return book" onPress={() => navigation.goBack()} />
       </View>
     </ScrollView>
   );
