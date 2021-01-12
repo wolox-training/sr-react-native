@@ -3,22 +3,27 @@ import { View, Text, TouchableOpacity, FlatList, Animated, ListRenderItem } from
 import { useNavigation } from '@react-navigation/native';
 import { routesName } from '@constants/routesName';
 import noneBook from '@assets/books/noneBook.png';
-import { BOOKS_MOCK } from '@constants/mockBooks';
+import BookService from '@services/BookService';
 import Book from '@interfaces/book';
 
 import styles from './styles';
 
 function HomeScreen() {
   const navigation = useNavigation();
+  const [book, setBook] = useState<Book[]>([]);
   const [animation] = useState(new Animated.Value(0));
   const keyExtractor = (item: Book) => item.id.toString();
 
   useEffect(() => {
-    Animated.timing(animation, {
-      toValue: 1,
-      duration: 2000,
-      useNativeDriver: false
-    }).start();
+    (async () => {
+      const res = await BookService.getService();
+      setBook(res.data!);
+      Animated.timing(animation, {
+        toValue: 1,
+        duration: 2000,
+        useNativeDriver: false
+      }).start();
+    })();
   }, [animation]);
 
   const renderItem: ListRenderItem<Book> = ({ item }) => (
@@ -40,7 +45,7 @@ function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <FlatList keyExtractor={keyExtractor} data={BOOKS_MOCK} renderItem={renderItem} />
+      <FlatList keyExtractor={keyExtractor} data={book} renderItem={renderItem} />
     </View>
   );
 }
