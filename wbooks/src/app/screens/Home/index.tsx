@@ -11,7 +11,7 @@ import styles from './styles';
 function HomeScreen() {
   const navigation = useNavigation();
   const [animation] = useState(new Animated.Value(0));
-  const keyExtractor = (item: Book, index: number) => index.toString();
+  const keyExtractor = (item: Book) => item.id.toString();
 
   useEffect(() => {
     Animated.timing(animation, {

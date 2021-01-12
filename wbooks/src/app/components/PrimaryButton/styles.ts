@@ -1,5 +1,5 @@
-import { colorsApp } from '@constants/colorsApp';
 import { StyleSheet } from 'react-native';
+import { colorsApp } from '@constants/colorsApp';
 
 export default StyleSheet.create({
   button: {
