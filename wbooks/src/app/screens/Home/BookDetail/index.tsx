@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, View, Text, Image } from 'react-native';
-import { RouteProp, useRoute } from '@react-navigation/native';
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import noneBook from '@assets/books/noneBook.png';
 import PrimaryButton from '@app/components/PrimaryButton';
 import SecondaryButton from '@app/components/SecondaryButton';
@@ -9,8 +9,10 @@ import Book from '@interfaces/book';
 import styles from './styles';
 
 function BookDetailScreen() {
+  const navigation = useNavigation();
   const route: RouteProp<{ params: { book: Book } }, 'params'> = useRoute();
   const { book } = route.params;
+  const goBack = () => navigation.goBack();
   return (
     <ScrollView style={styles.container}>
       <View style={styles.card}>
@@ -24,8 +26,8 @@ function BookDetailScreen() {
             <Text style={styles.textsBook}>{book.genre}</Text>
           </View>
         </View>
-        <SecondaryButton title="add a comment" />
-        <PrimaryButton title="return book" />
+        <SecondaryButton title="add a comment" onPress={goBack} />
+        <PrimaryButton title="return book" onPress={goBack} />
       </View>
     </ScrollView>
   );

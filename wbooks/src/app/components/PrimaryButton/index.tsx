@@ -1,17 +1,14 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import { colorsGradient } from '@constants/colorsApp';
 import ButtonCustom from '@interfaces/buttonCustom';
 
 import styles from './styles';
 
-function PrimaryButton({ title }: ButtonCustom) {
-  const navigation = useNavigation();
-  const goBack = () => navigation.goBack();
+function PrimaryButton({ title, onPress }: ButtonCustom) {
   return (
-    <TouchableOpacity onPress={goBack}>
+    <TouchableOpacity onPress={onPress}>
       <LinearGradient
         colors={colorsGradient}
         style={styles.button}
