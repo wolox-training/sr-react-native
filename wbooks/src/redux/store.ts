@@ -1,14 +1,15 @@
-import { createStore, combineReducers, compose } from 'redux';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import Reactotron from '../config/reactotronConfig';
 
-import books from './books/reducer';
+import book from './books/reducer';
 
 const reducers = combineReducers({
-  books
+  book
 });
 
-const enhancers = [];
+const enhancers = [applyMiddleware(thunk)];
 
 if (__DEV__) enhancers.push(Reactotron.createEnhancer(true));
 

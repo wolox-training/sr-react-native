@@ -1,14 +1,14 @@
 import { actions } from './actions';
 
 const initialState = {
-  book: null
+  books: null
 };
 
 export default function detailBookReducer(state = initialState, action: any) {
   switch (action.type) {
-    case actions.DETAIL_BOOK:
+    case actions.GET_BOOKS_SUCCESS:
       return {
-        book: action.payload.book
+        books: action.payload
       };
     default:
       return state;

@@ -1,30 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, FlatList, Animated, ListRenderItem } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import actionBooks from '@redux/books/actions';
 import { useNavigation } from '@react-navigation/native';
 import { routesName } from '@constants/routesName';
 import noneBook from '@assets/books/noneBook.png';
-import BookService from '@services/BookService';
 import Book from '@interfaces/book';
+import State from '@interfaces/reduxInterfaces';
 
 import styles from './styles';
 
 function HomeScreen() {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
-  const [book, setBook] = useState<Book[]>([]);
+  const [books, setBooks] = useState<Book[]>([]);
+  const { book } = useSelector((state: State) => state);
   const [animation] = useState(new Animated.Value(0));
   const keyExtractor = (item: Book) => item.id.toString();
 
   useEffect(() => {
-    (async () => {
-      const res = await BookService.getService();
-      setBook(res.data!);
-      Animated.timing(animation, {
-        toValue: 1,
-        duration: 2000,
-        useNativeDriver: false
-      }).start();
-    })();
-  }, [animation]);
+    dispatch(actionBooks.getBooks());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setBooks(book.books);
+    Animated.timing(animation, {
+      toValue: 1,
+      duration: 2000,
+      useNativeDriver: false
+    }).start();
+  }, [animation, book]);
 
   const renderItem: ListRenderItem<Book> = ({ item }) => (
     <TouchableOpacity
@@ -45,7 +50,7 @@ function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      <FlatList keyExtractor={keyExtractor} data={book} renderItem={renderItem} />
+      <FlatList keyExtractor={keyExtractor} data={books} renderItem={renderItem} />
     </View>
   );
 }
