@@ -54,8 +54,11 @@ function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      {book.booksLoading && <ActivityIndicator size="large" color={colorsApp.primary} />}
-      <FlatList keyExtractor={keyExtractor} data={book.books} renderItem={renderItem} />
+      {book.booksLoading ? (
+        <ActivityIndicator size="large" color={colorsApp.primary} />
+      ) : (
+        <FlatList keyExtractor={keyExtractor} data={book.books} renderItem={renderItem} />
+      )}
     </View>
   );
 }
