@@ -1,6 +1,6 @@
-import { createStore, combineReducers as CR, compose, applyMiddleware } from 'redux';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { fetchMiddleware, wrapCombineReducers } from 'redux-recompose';
+import { fetchMiddleware } from 'redux-recompose';
 
 import Reactotron from '../config/reactotronConfig';
 
@@ -8,8 +8,6 @@ import book from './books/reducer';
 
 const middlewares = [thunk, fetchMiddleware];
 const enhancers = [applyMiddleware(...middlewares)];
-
-const combineReducers = wrapCombineReducers(CR);
 
 if (__DEV__) enhancers.push(Reactotron.createEnhancer(true));
 

@@ -3,9 +3,7 @@ import { completeState, createReducer, completeReducer } from 'redux-recompose';
 import { actions } from './actions';
 
 const initialStateDescription = {
-  books: null,
-  booksLoading: false,
-  booksError: null
+  books: null
 };
 
 const initialState = completeState(initialStateDescription);
