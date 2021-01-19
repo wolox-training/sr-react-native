@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import actionBooks from '@redux/books/actions';
 import { useNavigation } from '@react-navigation/native';
 import { routesName } from '@constants/routesName';
-import noneBook from '@assets/books/noneBook.png';
+import noneBook from '@assets/books/none_book.png';
 import Book from '@interfaces/book';
 import State from '@interfaces/reduxInterfaces';
 import { colorsApp } from '@constants/colorsApp';

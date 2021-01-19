@@ -150,6 +150,14 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+            if(project.hasProperty('WBOOKS_STORE_FILE')) {
+                storeFile file(WBOOKS_STORE_FILE)
+                storePassword WBOOKS_STORE_PASSWORD
+                keyAlias WBOOKS_KEY_ALIAS
+                keyPassword WBOOKS_KEY_PASSWORD
+            }
+        }
     }
     buildTypes {
         debug {
@@ -161,6 +169,7 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
 
