@@ -11,6 +11,10 @@ describe('getInitials', () => {
     const res = getInitials(words);
     expect(res).toBe('H w');
   });
+  test('undefined argument', () => {
+    const res = getInitials();
+    expect(res).toBe(undefined);
+  });
 });
 
 describe('keepNumbers', () => {
@@ -22,6 +26,10 @@ describe('keepNumbers', () => {
   test('With string', () => {
     const value = 'santi';
     const res = keepNumbers(value);
+    expect(res).toBe('');
+  });
+  test('undefined argument', () => {
+    const res = keepNumbers();
     expect(res).toBe('');
   });
 });
