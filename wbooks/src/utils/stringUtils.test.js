@@ -12,8 +12,7 @@ describe('getInitials', () => {
     expect(res).toBe('H w');
   });
   test('undefined argument', () => {
-    const res = getInitials();
-    expect(res).toBe(undefined);
+    expect(getInitials()).toBe(undefined);
   });
 });
 
@@ -29,7 +28,6 @@ describe('keepNumbers', () => {
     expect(res).toBe('');
   });
   test('undefined argument', () => {
-    const res = keepNumbers();
-    expect(res).toBe('');
+    expect(keepNumbers()).toBe('');
   });
 });
