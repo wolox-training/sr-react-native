@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, View, Text, Image } from 'react-native';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
-import noneBook from '@assets/books/noneBook.png';
+import noneBook from '@assets/books/none_book.png';
 import PrimaryButton from '@app/components/PrimaryButton';
 import SecondaryButton from '@app/components/SecondaryButton';
 import Book from '@interfaces/book';
